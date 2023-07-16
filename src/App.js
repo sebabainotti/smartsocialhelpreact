@@ -432,13 +432,7 @@ const App = () => {
           </div>
         </div>
 
-        <div className="row contact-form">
-          <div className="col-twelve">
 
-            <ContactForm />
-
-          </div>
-        </div>
 
         <div className="row contact-info">
 
