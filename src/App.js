@@ -379,7 +379,7 @@ const App = () => {
         <div className="row portfolio-content">
           <div className="col-six">
             <h3>Adopción de Blockchain</h3>
-            <p><img width="120" height="120" className="pull-left" alt="sample-image"
+            <p><img width="120" height="120" className="pull-left" alt="image blockchain"
               src="images/sample-image.jpg" />
               Me enorgullece promover la adopción de la tecnología blockchain entre las empresas y el mundo en su
               totalidad. Todos los fondos recaudados son utilizados por medio de criptomonedas, promoviendo asi
@@ -394,7 +394,7 @@ const App = () => {
 
           <div className="col-six">
             <h3>Ayuda social</h3>
-            <p><img width="120" height="120" className="pull-left" alt="image"
+            <p><img width="120" height="120" className="pull-left" alt="image social"
               src="images/ayuda-social.jpg" />
               Impulso un cambio social significativo, donde cada donación realizada a través de ésta
               plataforma tiene un impacto real en la vida de las personas más necesitadas. Todos sabemos que
@@ -420,7 +420,7 @@ const App = () => {
           <div className="col-twelve" style={{ textAlign: "center", display: "inline-grid" }}>
             <div className="bgrid stat">
               <div className="icon-part">
-                <img src={yo} style={{ width: "30%" }} />
+                <img src={yo} style={{ width: "30%" }} alt="yo" />
               </div>
               <h5 className="stat-title">
                 Sebastian Bainotti
