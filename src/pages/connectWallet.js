@@ -37,7 +37,6 @@ const ConnectWalletPage = () => {
             const contractAddress = '0x3b2aF9C1749E7F6375BdAFFEa22e2E2973c19ffE';
             const contractABI = require('../../src/contracts/SmartSocialHelp_1/abi.json');
             const contractInstance = new web3Instance.eth.Contract(contractABI, contractAddress);
-            setContract(contractInstance);
             return contractInstance;
         } catch (error) {
             console.error('Error al conectarse a Sepolia:', error);
