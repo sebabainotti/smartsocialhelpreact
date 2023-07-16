@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Web3 from 'web3';
 
 const ConnectWalletPage = () => {
     const [web3, setWeb3] = useState(null);
-    const [contract, setContract] = useState(null);
     const [inputValue, setInputValue] = useState('50');
     const [walletValue, setWalletValue] = useState('');
 
     const handleInputChange = (event) => {
         setInputValue(event.target.value);
     };
-
-    const delay = ms => new Promise(
-        resolve => setTimeout(resolve, ms)
-    );
 
     const donar = async () => {
         try {
@@ -42,7 +37,6 @@ const ConnectWalletPage = () => {
             const contractAddress = '0x3b2aF9C1749E7F6375BdAFFEa22e2E2973c19ffE';
             const contractABI = require('../../src/contracts/SmartSocialHelp_1/abi.json');
             const contractInstance = new web3Instance.eth.Contract(contractABI, contractAddress);
-            setContract(contractInstance);
             return contractInstance;
         } catch (error) {
             console.error('Error al conectarse a Sepolia:', error);

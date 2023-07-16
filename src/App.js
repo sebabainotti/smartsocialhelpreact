@@ -1,25 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import Web3 from 'web3';
+import React from 'react';
 import ConnectWalletPage from './pages/connectWallet';
 import $ from 'jquery'
 import yo from './images/yo.png';
 import ContactForm from './pages/contactForm';
 
 const App = () => {
-  var $WIN = $(window);
-  var ssPreloader = function () {
-    $WIN.on('load', function () {
-      $('html, body').animate({ scrollTop: 0 }, 'normal');
-      $("#loader").fadeOut("slow", function () {
-        $("#preloader").delay(300).fadeOut("slow");
+  // var $WIN = $(window);
+  // var ssPreloader = function () {
+  //   $WIN.on('load', function () {
+  //     $('html, body').animate({ scrollTop: 0 }, 'normal');
+  //     $("#loader").fadeOut("slow", function () {
+  //       $("#preloader").delay(300).fadeOut("slow");
 
-      });
-    });
-  };
-  function ssInit() {
-    ssPreloader();
-  }
-  ssInit();
+  //     });
+  //   });
+  // };
+  // function ssInit() {
+  //   ssPreloader();
+  // }
+  //ssInit();
   return (
     <div className="App">
 
@@ -118,8 +117,8 @@ const App = () => {
               Creemos que al unir fuerzas, podemos impulsar un cambio real y duradero.
             </p>
             <p>
-              <a href="#contact" className="button full-width animate-this smoothscroll">Contáctame</a>
-              <a href="#skills" className="button button-primary full-width animate-this smoothscroll">Haz una
+              <a href="#contact" className="button full-width smoothscroll">Contáctame</a>
+              <a href="#skills" className="button button-primary full-width smoothscroll">Haz una
                 donación</a>
             </p>
 
@@ -503,9 +502,9 @@ const App = () => {
         </div>
       </footer>
 
-      <div id="preloader">
+      {/* <div id="preloader">
         <div id="loader"></div>
-      </div>
+      </div> */}
 
     </div>
 
