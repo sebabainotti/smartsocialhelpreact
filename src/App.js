@@ -5,20 +5,6 @@ import yo from './images/yo.png';
 import ContactForm from './pages/contactForm';
 
 const App = () => {
-  var $WIN = $(window);
-  var ssPreloader = function () {
-    $WIN.on('load', function () {
-      $('html, body').animate({ scrollTop: 0 }, 'normal');
-      $("#loader").fadeOut("slow", function () {
-        $("#preloader").delay(300).fadeOut("slow");
-
-      });
-    });
-  };
-  function ssInit() {
-    ssPreloader();
-  }
-  ssInit();
   return (
     <div className="App">
 
@@ -501,10 +487,6 @@ const App = () => {
           <a className="smoothscroll" title="Back to Top" href="#top"><i className="icon-UpArrow"></i></a>
         </div>
       </footer>
-
-      <div id="preloader">
-        <div id="loader"></div>
-      </div>
 
     </div>
 
