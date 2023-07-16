@@ -5,20 +5,6 @@ import yo from './images/yo.png';
 import ContactForm from './pages/contactForm';
 
 const App = () => {
-  // var $WIN = $(window);
-  // var ssPreloader = function () {
-  //   $WIN.on('load', function () {
-  //     $('html, body').animate({ scrollTop: 0 }, 'normal');
-  //     $("#loader").fadeOut("slow", function () {
-  //       $("#preloader").delay(300).fadeOut("slow");
-
-  //     });
-  //   });
-  // };
-  // function ssInit() {
-  //   ssPreloader();
-  // }
-  //ssInit();
   return (
     <div className="App">
 
@@ -379,8 +365,8 @@ const App = () => {
         <div className="row portfolio-content">
           <div className="col-six">
             <h3>Adopción de Blockchain</h3>
-            <p><a href="#"><img width="120" height="120" className="pull-left" alt="sample-image"
-              src="images/sample-image.jpg" /></a>
+            <p><img width="120" height="120" className="pull-left" alt="image blockchain"
+              src="images/sample-image.jpg" />
               Me enorgullece promover la adopción de la tecnología blockchain entre las empresas y el mundo en su
               totalidad. Todos los fondos recaudados son utilizados por medio de criptomonedas, promoviendo asi
               el uso de Blockchain en la población. Porque creo que Blockchain es el futuro, y uno de mis
@@ -394,8 +380,8 @@ const App = () => {
 
           <div className="col-six">
             <h3>Ayuda social</h3>
-            <p><a href="#"><img width="120" height="120" className="pull-left" alt="sample-image"
-              src="images/ayuda-social.jpg" /></a>
+            <p><img width="120" height="120" className="pull-left" alt="image social"
+              src="images/ayuda-social.jpg" />
               Impulso un cambio social significativo, donde cada donación realizada a través de ésta
               plataforma tiene un impacto real en la vida de las personas más necesitadas. Todos sabemos que
               vivimos en un mundo donde no todos tienen las mismas oportunidades, y creo profundamente que
@@ -420,7 +406,7 @@ const App = () => {
           <div className="col-twelve" style={{ textAlign: "center", display: "inline-grid" }}>
             <div className="bgrid stat">
               <div className="icon-part">
-                <img src={yo} style={{ width: "30%" }} />
+                <img src={yo} style={{ width: "30%" }} alt="yo" />
               </div>
               <h5 className="stat-title">
                 Sebastian Bainotti
@@ -501,11 +487,6 @@ const App = () => {
           <a className="smoothscroll" title="Back to Top" href="#top"><i className="icon-UpArrow"></i></a>
         </div>
       </footer>
-
-      {/* <div id="preloader">
-        <div id="loader"></div>
-      </div> */}
-
     </div>
 
   );
