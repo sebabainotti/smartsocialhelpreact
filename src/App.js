@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import Web3 from 'web3';
+import React from 'react';
 import ConnectWalletPage from './pages/connectWallet';
 import $ from 'jquery'
 import yo from './images/yo.png';
