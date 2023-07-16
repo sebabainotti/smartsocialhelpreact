@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Web3 from 'web3';
 
 const ConnectWalletPage = () => {
     const [web3, setWeb3] = useState(null);
-    const [contract, setContract] = useState(null);
     const [inputValue, setInputValue] = useState('50');
     const [walletValue, setWalletValue] = useState('');
 
     const handleInputChange = (event) => {
         setInputValue(event.target.value);
     };
-
-    const delay = ms => new Promise(
-        resolve => setTimeout(resolve, ms)
-    );
 
     const donar = async () => {
         try {
