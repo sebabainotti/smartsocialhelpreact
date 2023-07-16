@@ -379,8 +379,8 @@ const App = () => {
         <div className="row portfolio-content">
           <div className="col-six">
             <h3>Adopción de Blockchain</h3>
-            <p><a href="#"><img width="120" height="120" className="pull-left" alt="sample-image"
-              src="images/sample-image.jpg" /></a>
+            <p><img width="120" height="120" className="pull-left" alt="sample-image"
+              src="images/sample-image.jpg" />
               Me enorgullece promover la adopción de la tecnología blockchain entre las empresas y el mundo en su
               totalidad. Todos los fondos recaudados son utilizados por medio de criptomonedas, promoviendo asi
               el uso de Blockchain en la población. Porque creo que Blockchain es el futuro, y uno de mis
@@ -394,8 +394,8 @@ const App = () => {
 
           <div className="col-six">
             <h3>Ayuda social</h3>
-            <p><a href="#"><img width="120" height="120" className="pull-left" alt="sample-image"
-              src="images/ayuda-social.jpg" /></a>
+            <p><img width="120" height="120" className="pull-left" alt="image"
+              src="images/ayuda-social.jpg" />
               Impulso un cambio social significativo, donde cada donación realizada a través de ésta
               plataforma tiene un impacto real en la vida de las personas más necesitadas. Todos sabemos que
               vivimos en un mundo donde no todos tienen las mismas oportunidades, y creo profundamente que
