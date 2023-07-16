@@ -2,7 +2,6 @@ import React from 'react';
 import ConnectWalletPage from './pages/connectWallet';
 import $ from 'jquery'
 import yo from './images/yo.png';
-import ContactForm from './pages/contactForm';
 
 const App = () => {
   return (
@@ -103,8 +102,8 @@ const App = () => {
               Creemos que al unir fuerzas, podemos impulsar un cambio real y duradero.
             </p>
             <p>
-              <a href="#contact" className="button full-width smoothscroll">Contáctame</a>
-              <a href="#skills" className="button button-primary full-width smoothscroll">Haz una
+              <a href="#contact" className="smoothscroll button full-width">Contáctame</a>
+              <a href="#skills" className="smoothscroll button button-primary full-width">Haz una
                 donación</a>
             </p>
 
