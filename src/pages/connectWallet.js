@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Web3 from 'web3';
+import BigNumber from "bignumber.js";
 
 const ConnectWalletPage = () => {
     const [web3, setWeb3] = useState(null);
@@ -14,17 +15,21 @@ const ConnectWalletPage = () => {
         try {
             let web3Instance = web3;
             if (web3Instance == null) {
-                alert('Conecte su billetera virtual.');
+                alert('Connect your wallet.');
                 return;
             }
             let contractInstance = connectToSepolia(web3Instance);
             let valueEthInUsd = parseInt(await contractInstance.methods.getConversionRate(1).call());
-            const amountETH = inputValue / valueEthInUsd;
-            const weiAmount = web3Instance.utils.toWei(amountETH.toString(), 'ether');
+            const amountETH = new BigNumber(inputValue / valueEthInUsd);
+            let weiAmount = (amountETH.multipliedBy(new BigNumber(1000000000000000000)));
             const accounts = await web3Instance.eth.getAccounts();
             var result = await contractInstance.methods.fund().send({
                 from: accounts[0],
-                value: weiAmount,
+                value: parseInt(weiAmount),
+            }).then(transactionHash => {
+                console.log('Transacción enviada. Hash:', transactionHash);
+                // Esperar a que la transacción se confirme
+                waitForTransactionConfirmation(web3Instance, transactionHash);
             });
             console.log('Resultado de la ejecución:', result);
         }
@@ -32,14 +37,37 @@ const ConnectWalletPage = () => {
             console.log('Error al ejecutar la función del contrato:', error);
         }
     };
+
+    async function waitForTransactionConfirmation(web3Instance, transactionHash) {
+        while (true) {
+            try {
+                const receipt = await web3Instance.eth.getTransactionReceipt(transactionHash.transactionHash);
+                if (receipt && receipt.blockNumber) {
+                    console.log('Transacción confirmada en el bloque:', receipt.blockNumber);
+                    break;
+                } else {
+                    await delay(1000);
+                }
+            } catch (error) {
+                console.error('Error al obtener el recibo de la transacción:', error);
+                break;
+            }
+        }
+    }
+
+    // Función de utilidad para esperar un tiempo determinado
+    function delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     const connectToSepolia = (web3Instance) => {
         try {
-            const contractAddress = '0x3b2aF9C1749E7F6375BdAFFEa22e2E2973c19ffE';
+            const contractAddress = '0xf865853847a571c12a8e956c9f2ce28e2487a563';
             const contractABI = require('../../src/contracts/SmartSocialHelp_1/abi.json');
             const contractInstance = new web3Instance.eth.Contract(contractABI, contractAddress);
             return contractInstance;
         } catch (error) {
-            console.error('Error al conectarse a Sepolia:', error);
+            console.error('Error:', error);
         }
     };
     const connectWallet = () => {
@@ -47,38 +75,29 @@ const ConnectWalletPage = () => {
             var isConnected = true;
             var web3;
             if (typeof window.ethereum !== 'undefined') {
-                // Conexión a la billetera MetaMask
                 web3 = new Web3(window.ethereum);
                 window.ethereum.enable();
-                console.log('Conectado a MetaMask:', web3);
             } else if (typeof window.BinanceChain !== 'undefined') {
-                // Conexión a la billetera Binance Wallet
                 web3 = new Web3(window.BinanceChain);
-                console.log('Conectado a Binance Wallet:', web3);
             } else if (typeof window.trust !== 'undefined') {
-                // Conexión a la billetera Trust Wallet
                 web3 = new Web3(window.trust);
-                console.log('Conectado a Trust Wallet:', web3);
             } else if (typeof window.coinbase !== 'undefined') {
-                // Conexión a la billetera Coinbase Wallet
                 web3 = new Web3(window.coinbase);
-                console.log('Conectado a Coinbase Wallet:', web3);
             } else {
                 isConnected = false;
-                alert('No se detectó ninguna billetera compatible. Asegúrate de tener instalada una de las siguientes billeteras: MetaMask, Binance Wallet, Trust Wallet, Coinbase Wallet.')
-                console.log('No se detectó ninguna billetera compatible. Asegúrate de tener instalada una de las siguientes billeteras: MetaMask, Binance Wallet, Trust Wallet, Coinbase Wallet.');
+                alert('No compatible wallet was detected. Make sure you have one of the following wallets installed: MetaMask, Binance Wallet, Trust Wallet, Coinbase Wallet.')
             }
             if (isConnected) {
                 const accounts = web3.eth.getAccounts();
                 accounts.then(function (res) {
-                    setWalletValue(res);
+                    setWalletValue(res[0]);
                 })
                 setWeb3(web3);
             }
             return web3;
         } catch (error) {
-            console.error('Error al conectar la billetera:', error);
-            alert('Error al conectar la billetera. Comunicate con nosotros asi te ayudamos a resolverlo!')
+            console.error('Failed to connect wallet:', error);
+            alert('Ups! Failed to connect wallet.')
         }
     };
 

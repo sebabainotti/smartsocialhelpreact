@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@web3-react/core": "^8.2.0",
     "axios": "^1.4.0",
+    "bignumber.js": "^9.1.1",
     "cors": "^2.8.5",
     "ethers": "^6.6.2",
     "gh-pages": "^5.0.0",
