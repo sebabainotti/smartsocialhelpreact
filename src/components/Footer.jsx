@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer id="gtco-footer" role="contentinfo" style={{ backgroundImage: 'url(images/img_bg_3.jpg)' }}>
+        <footer id="gtco-footer" role="contentinfo" style={{ backgroundImage: 'url(../images/img_bg_3.jpg)' }}>
             <div className="gtco-container">
                 <div className="row row-pb-sm">
                     <div className="col-md-4 gtco-widget">

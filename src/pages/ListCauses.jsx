@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Card from '../components/Card';
 
-const ListCauses = () => {
+const ListCauses = (props) => {
     return (
         <div>
             <Header btn='create' />
@@ -14,19 +14,13 @@ const ListCauses = () => {
             <div id="gtco-features">
                 <div className="gtco-container">
                     <div className="row">
-                        <Card title="Ayudemos a Juan Siprioco" image="ruedas.png" />
-                        <Card title="Vamos por mas alimentos al comedor Juan Perez" image="comedor.png" />
-                        <Card title="Los chicos de la aldea necesitan tu ayuda" image="africa.png" />
-                        <Card title="Ayudemos a Juan Siprioco" image="ruedas.png" />
-                        <Card title="Vamos por mas alimentos al comedor Juan Perez" image="comedor.png" />
-                        <Card title="Los chicos de la aldea necesitan tu ayuda" image="africa.png" />
-                        <Card title="Ayudemos a Juan Siprioco" image="ruedas.png" />
-                        <Card title="Vamos por mas alimentos al comedor Juan Perez" image="comedor.png" />
-                        <Card title="Los chicos de la aldea necesitan tu ayuda" image="africa.png" />
-                        <Card title="Ayudemos a Juan Siprioco" image="ruedas.png" />
-                        <Card title="Vamos por mas alimentos al comedor Juan Perez" image="comedor.png" />
-                        <Card title="Los chicos de la aldea necesitan tu ayuda" image="africa.png" />
-
+                        {props.data ? (
+                            props.data.map((item, index) => (
+                                <Card key={index} id={item.id} title={item.title} image={item.image} description={item.description} heartAmount={item.heart} total={item.total} collected={item.collected} />
+                            ))
+                        ) : (
+                            <p>Loading...</p>
+                        )}
                     </div>
 
 

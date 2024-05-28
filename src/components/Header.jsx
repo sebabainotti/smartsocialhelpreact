@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = (props) => {
     return (
-        <nav className="gtco-nav" role="navigation">
+        <nav className="gtco-nav  fixed-top" role="navigation">
             <div className="gtco-container">
                 <div className="row">
                     <div className="col-xs-2">
@@ -10,10 +10,10 @@ const Header = (props) => {
                     </div>
                     <div className="col-xs-8 text-center menu-1">
                         <ul>
-                            <li className="active"><a href="/">Home</a></li>
-                            <li><a href="/who">Quienes somos</a></li>
-                            <li><a href="/how">Como lo hacemos</a></li>
-                            <li><a href="/contact">Contacto</a></li>
+                            <li className={props.selected == 'home' ? 'active' : ''}><a href="/">Home</a></li>
+                            <li className={props.selected == 'who' ? 'active' : ''}><a href="/who">Quienes somos</a></li>
+                            <li className={props.selected == 'how' ? 'active' : ''}><a href="/how">Como lo hacemos</a></li>
+                            <li className={props.selected == 'contact' ? 'active' : ''}><a href="/contact">Contacto</a></li>
                         </ul>
                     </div>
                     <div className="col-xs-2 text-right hidden-xs menu-2">

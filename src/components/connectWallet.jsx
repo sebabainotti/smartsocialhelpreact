@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import Web3 from 'web3';
 import BigNumber from "bignumber.js";
 
-const ConnectWalletPage = () => {
+const ConnectWallet = () => {
     const [web3, setWeb3] = useState(null);
-    const [inputValue, setInputValue] = useState('50');
+    const [inputValue, setInputValue] = useState('10');
     const [walletValue, setWalletValue] = useState('');
 
     const handleInputChange = (event) => {
@@ -15,7 +15,7 @@ const ConnectWalletPage = () => {
         try {
             let web3Instance = web3;
             if (web3Instance == null) {
-                alert('Connect your wallet.');
+                alert('Conecta tu wallet.');
                 return;
             }
             let contractInstance = connectToSepolia(web3Instance);
@@ -28,7 +28,6 @@ const ConnectWalletPage = () => {
                 value: parseInt(weiAmount),
             }).then(transactionHash => {
                 console.log('Transacción enviada. Hash:', transactionHash);
-                // Esperar a que la transacción se confirme
                 waitForTransactionConfirmation(web3Instance, transactionHash);
             });
             console.log('Resultado de la ejecución:', result);
@@ -102,23 +101,24 @@ const ConnectWalletPage = () => {
     };
 
     return (
-        <div className="col-six donation-box">
-            <p>
-                <label>
-                    1. Primero conecta tu wallet a tu billetera preferida.
-                </label>
-                <a className="button button-primary btn-donar" onClick={connectWallet}>CONECTAR</a>
-                <label id="wallet">{walletValue}</label>
-            </p>
-            <p>
-                <label>
-                    2. Ahora puedes donar lo que quieras y puedas(en USD). El valor en USD que dones se convertira automaticamente a ETH de acuerdo al precio actual.
-                </label>
-                <input type="number" className="full-width" value={inputValue} onChange={handleInputChange} />
+        <div className="row form-group">
+            <label>
+                1. Primero conecta tu wallet.
+            </label>
+            <br />
+            <a className="button button-primary btn-donar" onClick={connectWallet}>CONECTAR</a>
+            <label id="wallet">{walletValue}</label>
+            <label>
+                2. Ahora puedes donar lo que quieras y puedas(en USD). El valor en USD que dones se convertira automaticamente a ETH de acuerdo al precio actual.
+            </label>
+            <div class="col-md-6">
+                <input type="number" className="form-control" value={inputValue} onChange={handleInputChange} />
+            </div>
+            <div class="col-md-6">
                 <button onClick={donar}>DONAR</button>
-            </p>
+            </div>
         </div>
     );
 };
 
-export default ConnectWalletPage;
+export default ConnectWallet;

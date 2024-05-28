@@ -104,6 +104,10 @@ figure {
   padding-right: 15px;
 }
 
+.gtco-container .display-tc span {
+  color: #52d3aa;
+}
+
 .gtco-nav {
   position: absolute;
   top: 0;
@@ -370,7 +374,7 @@ figure {
 }
 
 .phrase-section .display-tc h1 {
-  color: #fff;
+  color: #5d5d5d;
 }
 
 .phrase-section .display-tc h2 {
@@ -601,7 +605,6 @@ form label {
 .gtco-cover .display-tc h1 {
   margin-bottom: 0px;
   font-size: 70px;
-  line-height: 1.5;
 }
 
 @media screen and (max-width: 768px) {
@@ -711,7 +714,7 @@ form label {
 }
 
 #gtco-features-2 {
-  background: #efefef;
+  background: #fff;
   position: relative;
   float: left;
   width: 100%;
@@ -812,7 +815,7 @@ form label {
 }
 
 .gtco-heading {
-  margin-bottom: 5em;
+  margin-bottom: 2em;
 }
 
 .gtco-heading.gtco-heading-sm {
@@ -824,7 +827,15 @@ form label {
   margin-bottom: 10px;
   line-height: 1.5;
   font-weight: bold;
-  color: #000;
+  color: #53ab92;
+}
+
+.gtco-heading2 h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  font-weight: bold;
+  color: #53ab92;
 }
 
 .gtco-heading p {
@@ -990,18 +1001,11 @@ form label {
 }
 
 #gtco-started {
-  background: #4cc1bd;
-  background: -moz-linear-gradient(-45deg, #4cc1bd 0%, #3f95ea 100%);
-  background: -webkit-gradient(left top, right bottom, color-stop(0%, #4cc1bd), color-stop(100%, #3f95ea));
-  background: -webkit-linear-gradient(-45deg, #4cc1bd 0%, #3f95ea 100%);
-  background: -o-linear-gradient(-45deg, #4cc1bd 0%, #3f95ea 100%);
-  background: -ms-linear-gradient(-45deg, #4cc1bd 0%, #3f95ea 100%);
-  background: linear-gradient(135deg, #4cc1bd 0%, #3f95ea 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4cc1bd', endColorstr='#3f95ea', GradientType=1);
+  background-color: #fff;
 }
 
 #gtco-started .gtco-heading h2 {
-  color: #fff;
+  color: #828282;
 }
 
 #gtco-started .form-control {
@@ -1401,10 +1405,10 @@ form label {
   font-family: "Work Sans", Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  border-radius: 30px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
@@ -1453,16 +1457,14 @@ form label {
 }
 
 .btn-success {
-  background: #5cb85c;
+  background: #52d3aa;
   color: #fff;
-  border: 2px solid #5cb85c;
 }
 
 .btn-success:hover,
 .btn-success:focus,
 .btn-success:active {
   background: #4cae4c !important;
-  border-color: #4cae4c !important;
 }
 
 .btn-success.btn-outline {
@@ -1670,18 +1672,15 @@ form label {
 
 .progress {
   --progress: 0%;
-  height: 15px;
-  padding: 3px 0px;
+  height: 8px;
+  padding: 1px 0px;
+  margin-top: 6px;
 }
 
 .progress .bar {
   width: var(--progress);
   height: 100%;
-  background: linear-gradient(#52d3aa, #337ab7, #52d3aa);
-  background-repeat: repeat;
-  box-shadow: 0 0 10px 0px #337ab7;
-  animation: shine 4s ease-in infinite, end 1s ease-out 1;
-  transition: width 3s ease;
+  background: #52d3aa;
 }
 
 @property --progress {
@@ -1714,19 +1713,11 @@ form label {
 
 .card-amounts {
   width: 100%;
-  position: relative;
   font-size: 12px;
-}
-
-.card-amounts .initial {
-  color: green;
-  left: 0;
-  position: absolute;
+  float: left;
 }
 
 .card-amounts .collected {
-  width: 100%;
-  text-align: center;
   font-size: 18px;
   font-weight: bold;
   color: #52d3aa;
@@ -1734,8 +1725,179 @@ form label {
 
 .card-amounts .total {
   color: green;
-  right: 0px;
+  font-size: 14px;
+}
+
+.errors {
+  background: rgb(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+  margin: 10px 0px;
+  display: none;
+}
+
+.btn-donar {
+  cursor: pointer;
+}
+
+.share-buttons {
   position: absolute;
+  bottom: 0;
+  right: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.share-buttons button {
+  margin: 0px 0;
+}
+
+.details-button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 16px;
+}
+
+.share-buttons button svg {
+  width: 25px;
+  height: 25px;
+}
+
+.main-share-button {
+  position: absolute;
+  top: 35px;
+  right: 3px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.main-share-button svg {
+  width: 32px;
+  height: 32px;
+}
+
+.card-img .icon i.icon-share2 {
+  color: #fff;
+}
+
+.card-img .heart {
+  cursor: pointer;
+}
+
+.card-img:hover img {
+  transform: scale(1.3);
+  -webkit-transition: all .5s ease-in-out;
+}
+
+.card-img {
+  overflow: hidden;
+}
+
+#gtco-features .p-how {
+  color: #000;
+  font-family: "Caveat", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 25px;
+}
+
+#gtco-features .p-change {
+  color: #52d3aa;
+  font-family: "Work Sans", Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 25px;
+}
+
+.how {}
+
+.how h1 {
+  color: #52d3aa;
+  font-size: 22px;
+}
+
+.how p ul li span {
+  font-weight: bold;
+}
+
+.how .center {
+  font-weight: bold;
+  font-family: "Caveat", cursive;
+  font-size: 35px;
+  text-align: center;
+}
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  z-index: 1000;
+  display: none;
+}
+
+.cookie-banner p {
+  margin: 0;
+  padding: 0 20px;
+}
+
+.cookie-banner button {
+  background-color: #52d3aa;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cookie-banner button:hover {
+  background-color: #45a049;
+}
+
+#gtco-features .steps {
+  width: 100%;
+  text-align: center;
+}
+
+.img-center {
+  width: 100%;
+  text-align: center;
+}
+
+.panel-info {
+  width: 100%;
+  box-shadow: 0 .3125rem 1rem -.1875rem #0003;
+  padding: 5px 10px;
+  margin: 8px 0px;
+  border-radius: 3px;
+  float: left;
+  height: 50px;
+}
+
+.panel-info .data {
+  float: left;
+  padding-top: 7px;
+}
+
+.panel-info .buttons {
+  float: right;
+}
+
+.panel-info .data .collected {
+  color: #52d3aa;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=style.css.map */
