@@ -2,7 +2,6 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import ConnectWallet from '../components/ConnectWallet';
 import Web3ModalConnect from '../components/Web3ModalConnect';
 
 const DetailCause = (props) => {
